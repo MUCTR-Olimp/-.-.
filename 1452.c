@@ -3,8 +3,8 @@
 #include <malloc.h>
 #define len 2000
 int main(){
-	unsigned int i,g,z,h,ma_kol=1,kol,kol_deltas=0,kol_znach,s[len],output[len],new_output[len],znach[len],flag;
-	int* deltas=(int*)malloc(len*len*sizeof(int));
+	unsigned int i,g,z,h,ma_kol=1,kol,kol_deltas=0,kol_znach,s[len],output[len],znach[len],flag;
+	unsigned int* deltas=(unsigned int*)malloc(len*len*sizeof(unsigned int));
 	output[0]=1;
 	if(1){
 		FILE *file=fopen("input.txt","r");
@@ -22,7 +22,10 @@ int main(){
 				if(deltas[kol_deltas]<0) deltas[kol_deltas]*=-1;
 				flag=1;
 				for(z=0;z<kol_deltas;z++){
-					if(deltas[z]==deltas[kol_deltas]) flag=0;
+					if(deltas[z]==deltas[kol_deltas]) {
+						flag=0;
+						break;
+					}
 				}
 				if(flag) kol_deltas++;
 			}
@@ -46,26 +49,31 @@ int main(){
 					}
 					if(flag==3) continue;
 					if((flag==2) || (flag==0)){
-						new_output[kol_znach]=i+1;
 						znach[kol_znach]=s[i];
 						kol_znach++;
 					}
 					if((flag==1) || (flag==0)){
-						new_output[kol_znach]=g+1;
 						znach[kol_znach]=s[g];
 						kol_znach++;
 					}
 					if(ma_kol<kol_znach){
 						ma_kol=kol_znach;
-						for(z=0;z<kol_znach;z++) output[z]=new_output[z];
+						for(z=0;z<kol_znach;z++) output[z]=znach[z];
 					}
 				}
 			}
 		}
 	}
 	printf("%u\n",ma_kol);
-	for(i=0;i<ma_kol;i++) printf("%u ",output[i]);
+	for(i=0;i<ma_kol;i++){
+		for(g=0;g<kol;g++) {
+			if(s[g]==output[i]){
+				printf("%u ",g+1);//Переделать
+				break;
+			}
+		}
+	}
 	free(deltas);
-	scanf(" ");
+	//scanf(" ");
 	return 0;
 }
