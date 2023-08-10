@@ -1,6 +1,7 @@
+#Success
 import sys
 DICT=["adgjmpsvy. ","behknqtwz,","cfilorux!"]
-if(False):file=sys.stdin
+if(True):file=sys.stdin
 else:file=open("input.txt","r")
 text=file.read()
 if(text[-1]=="\n"):text=text[:-1]
