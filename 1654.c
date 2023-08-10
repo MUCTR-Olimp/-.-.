@@ -1,10 +1,11 @@
+//Not work
 #include <stdio.h>
 #include <stdlib.h>
 #define len 200000
 int main(){
 	char text[len];
 	unsigned int i=0,g=0;
-	if(1){
+	if(0){
 		FILE *file=fopen("input.txt","r");
 		fscanf(file,"%s",&text);
 		fclose(file);
