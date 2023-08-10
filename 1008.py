@@ -1,8 +1,9 @@
+#Success
 import sys
 s=[]
 Mode=True
 true=True
-if(False):file=sys.stdin
+if(True):file=sys.stdin
 else:file=open("input.txt","r")
 for line in file:
 	if(true):
@@ -61,12 +62,3 @@ else:
 	for x in range(10):
 		for y in range(10):
 			if([x,y] in points):print(x,y)
-'''
-6
-2 3
-2 4
-3 3
-3 4
-4 2
-4 3
-'''
