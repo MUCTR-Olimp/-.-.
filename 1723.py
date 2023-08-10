@@ -1,3 +1,4 @@
+#Not work
 import sys
 if(True):file=sys.stdin
 else:file=open("input.txt","r")
