@@ -1,5 +1,6 @@
+#Success
 import sys
-if(False):file=sys.stdin
+if(True):file=sys.stdin
 else:file=open("input.txt","r")
 Petr,Petr_delta,Taks,Taks_delta=list(map(int,file.read().split()))
 file.close()
@@ -10,6 +11,3 @@ else:
 		Petr+=Petr_delta
 		if(Taks-Taks_delta<=Petr):print(Petr);break
 		Taks-=Taks_delta
-
-
-
